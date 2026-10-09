@@ -19,10 +19,16 @@ export const MomentCard: React.FC<MomentCardProps> = ({ moment, index, onSelect 
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
       className="group relative rounded-3xl bg-charcoal-900/90 border border-white/10 hover:border-saffron-500/40 overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-saffron-500/10"
     >
-      {/* Visual Thumbnail Representation (Cinematic Abstract Gradient & Grain) */}
+      {/* Visual Thumbnail Representation (Photo or Gradient with Grain) */}
       <div className={`relative h-52 w-full bg-gradient-to-br ${moment.thumbnailGradient} p-5 flex flex-col justify-between overflow-hidden`}>
-        {/* Film grain effect */}
-        <div className="absolute inset-0 bg-grain opacity-40 pointer-events-none" />
+        {moment.image && (
+          <img
+            src={moment.image}
+            alt={moment.title}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 mix-blend-luminosity hover:mix-blend-normal"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-900/60 to-transparent pointer-events-none" />
 
         {/* Ambient Top Tags */}
         <div className="relative z-10 flex items-center justify-between">

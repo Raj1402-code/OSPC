@@ -1,8 +1,8 @@
 export type VlogType = 
-  | 'Road trip'
-  | 'Food and culture'
-  | 'Comedy and chaos'
-  | 'Behind the scenes';
+  | 'Therku Seemai & Village Vlogs'
+  | 'Squad Road Trips & Hill Stations'
+  | 'Harshath & Siddhu Comedy Counters'
+  | 'Food Hunts & Street Food Trails';
 
 export interface Milestone {
   id: string;
@@ -21,6 +21,7 @@ export interface VlogMoment {
   category: string;
   duration: string;
   thumbnailGradient: string;
+  image?: string;
   teaser: string;
   notes: string[];
   location: string;

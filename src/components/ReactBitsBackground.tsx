@@ -9,7 +9,6 @@ export const ReactBitsBackground: React.FC = () => {
     if (shouldReduceMotion) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize mouse between -1 and 1
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
       setMousePos({ x, y });
@@ -21,9 +20,9 @@ export const ReactBitsBackground: React.FC = () => {
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
-      {/* 1. Perspective Horizon Grid (Inspired by React Bits Matrix / Grid) */}
+      {/* 1. Perspective Horizon Grid */}
       <div 
-        className="absolute inset-0 opacity-[0.14]"
+        className="absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
@@ -35,11 +34,11 @@ export const ReactBitsBackground: React.FC = () => {
         }}
       />
 
-      {/* 2. Primary Saffron Glow Orb (Tracks mouse with damping) */}
+      {/* 2. Primary Saffron Glow Orb */}
       <motion.div
         animate={
           shouldReduceMotion
-            ? { opacity: 0.18 }
+            ? { opacity: 0.16 }
             : {
                 x: mousePos.x * 40,
                 y: mousePos.y * 30,
@@ -73,20 +72,20 @@ export const ReactBitsBackground: React.FC = () => {
         className="absolute top-44 right-1/4 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-lime-accent/15 via-lime-glow/10 to-transparent blur-[110px]"
       />
 
-      {/* 4. Deep Charcoal / Indigo Grounding Aura */}
+      {/* 4. Deep Charcoal Grounding Aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[360px] bg-amber-500/5 rounded-full blur-[140px]" />
 
-      {/* 5. Subtle Road Markers / Floating Telemetry Coordinates */}
+      {/* 5. Authentic Tamil Nadu Highway Telemetry Markers */}
       <div className="absolute inset-0 flex justify-between px-8 py-20 opacity-20 font-mono text-[10px] text-cream-300">
         <div className="space-y-1">
-          <div>LOC: 28.6139° N, 77.2090° E</div>
-          <div>ELEV: 2,140M • RAIN: MONSOON</div>
-          <div>CAM: LOG-PROFILE • FPS: 60</div>
+          <div>CIRCUIT: CHENNAI ➔ MADURAI ➔ TIRUNELVELI</div>
+          <div>CORRIDOR: NH 44 / THERKU SEEMAI TRAIL</div>
+          <div>AUDIO: HARSHATH MIMICRY & WHEEZING LAUGHTER</div>
         </div>
         <div className="text-right space-y-1 hidden sm:block">
-          <div>RIG: UNFILTERED ROAD PROTOCOL</div>
-          <div>AUDIO: DUAL WINDSCREEN CHATTER</div>
-          <div>CHAI STOPS: ACTIVE</div>
+          <div>SERIES: THERKU SEEMAI • 6M VIRUNTHU</div>
+          <div>HOTEL: ROADSIDE BUN PAROTTA & SALNA</div>
+          <div>VIBE: 100% UNFILTERED BANTER</div>
         </div>
       </div>
     </div>

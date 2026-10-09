@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Compass, ArrowRight, ShieldCheck, HeartHandshake, ShieldAlert, Sparkles } from 'lucide-react';
+import { MapPin, Compass, ArrowRight, ShieldCheck, HeartHandshake, ShieldAlert, Sparkles, Utensils } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
 import { AnimatedButton } from '../components/AnimatedButton';
 import { MILESTONES, AUDIENCE_THEMES } from '../data/mockData';
@@ -9,7 +9,7 @@ export const Journey: React.FC = () => {
   return (
     <div className="relative overflow-hidden pb-24">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
+      <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-saffron-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <motion.div
@@ -18,8 +18,12 @@ export const Journey: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-charcoal-900 border border-saffron-500/30 text-saffron-400 text-xs font-mono tracking-widest uppercase mb-6"
         >
-          <Compass className="w-3.5 h-3.5 text-lime-accent" />
-          <span>ROAD ARCHIVE • MILESTONE LOGS</span>
+          <img
+            src="/channel-1.jpeg"
+            alt="VJ Siddhu Vlogs"
+            className="w-5 h-5 rounded-full object-cover"
+          />
+          <span>CHANNEL ROADMAP • பயணம் தான் கதை</span>
         </motion.div>
 
         <motion.h1
@@ -40,7 +44,7 @@ export const Journey: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl mx-auto text-cream-200/90 text-base sm:text-lg leading-relaxed"
         >
-          A fan-inspired timeline celebrating the relentless miles, roadside breakdowns, and genuine laughter that define the Sidhu Vlogs community.
+          From the early Fun Panrom street mic days to the historic Therku Seemai village expeditions and 6M Virunthu. An authentic chronicle of VJ Siddhu, Harshath, and the squad.
         </motion.p>
 
         {/* Responsible Disclaimer Badge */}
@@ -51,12 +55,12 @@ export const Journey: React.FC = () => {
           className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-charcoal-900/60 border border-white/10 text-xs text-cream-400 font-mono"
         >
           <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
-          <span>Note: A fan-curated creative tribute reflecting community spirit, not official personal records.</span>
+          <span>Fan-curated timeline commemorating the channel’s real evolutionary milestones.</span>
         </motion.div>
       </section>
 
       {/* 2. VERTICAL ANIMATED TIMELINE */}
-      <section className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="relative">
           {/* Central Timeline Progress Line */}
           <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-saffron-500 via-amber-400 to-lime-accent opacity-30" />
@@ -133,13 +137,46 @@ export const Journey: React.FC = () => {
         </div>
       </section>
 
+      {/* VIRUNTHU SPOTLIGHT SHOWCASE */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="rounded-3xl overflow-hidden glass-panel border border-saffron-500/30 grid grid-cols-1 md:grid-cols-12 items-center">
+          <div className="md:col-span-6 h-64 md:h-full relative">
+            <img
+              src="/therku-seemai-feast.jpg"
+              alt="Therku Seemai Village Virunthu Feast"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-charcoal-900/90" />
+          </div>
+
+          <div className="md:col-span-6 p-8 sm:p-10 space-y-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-accent/10 border border-lime-accent/30 text-lime-accent font-mono text-xs font-bold uppercase">
+              <Utensils className="w-3.5 h-3.5" />
+              THE 6M VIRUNTHU SPIRIT
+            </span>
+
+            <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-cream-50 leading-tight">
+              “When We Feasted Together on Banana Leaves.”
+            </h3>
+
+            <p className="text-xs sm:text-sm text-cream-300/80 leading-relaxed">
+              Crossing 6 Million subscribers was celebrated the true Tamil way: by rolling out mats on an open village ground, cooking hot biryani, and serving our subscriber family with love.
+            </p>
+
+            <div className="pt-2 text-xs font-mono text-saffron-400">
+              #NammaMakkal • #TherkuSeemai • #6MVirunthu
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. "WHAT THE CREW COMES FOR" AUDIENCE THEMES */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         <SectionHeading
-          badge="AUDIENCE ANCHOR"
+          badge="AUDIENCE ANCHOR • நம்ம மக்கள் வைப்"
           title="What the Crew"
           titleHighlight="Rides For"
-          subtitle="The core pillars that turn random internet viewers into lifelong road companions."
+          subtitle="The core values that make VJ Siddhu Vlogs feel like sitting with family."
         />
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -155,8 +192,8 @@ export const Journey: React.FC = () => {
             >
               <div>
                 <div className="w-12 h-12 rounded-xl bg-charcoal-900 border border-white/10 flex items-center justify-center mb-5 text-lime-accent">
-                  {idx === 0 && <Compass className="w-6 h-6 text-saffron-400" />}
-                  {idx === 1 && <Sparkles className="w-6 h-6 text-amber-400" />}
+                  {idx === 0 && <Sparkles className="w-6 h-6 text-saffron-400" />}
+                  {idx === 1 && <Compass className="w-6 h-6 text-amber-400" />}
                   {idx === 2 && <ShieldCheck className="w-6 h-6 text-lime-accent" />}
                   {idx === 3 && <HeartHandshake className="w-6 h-6 text-saffron-400" />}
                 </div>
@@ -184,12 +221,12 @@ export const Journey: React.FC = () => {
       </section>
 
       {/* 4. CALL TO ACTION TO /join */}
-      <section className="pt-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+      <section className="pt-4 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
         <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-b from-charcoal-850 to-charcoal-900 border border-saffron-500/30 relative overflow-hidden shadow-2xl">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-saffron-500/20 blur-3xl pointer-events-none" />
 
           <span className="font-mono text-xs uppercase tracking-widest text-lime-accent px-3 py-1 rounded-full bg-lime-accent/10 border border-lime-accent/20 inline-block mb-4">
-            NEXT DESTINATION
+            NEXT EXPEDITION
           </span>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-cream-50">
@@ -197,7 +234,7 @@ export const Journey: React.FC = () => {
           </h2>
 
           <p className="mt-4 text-cream-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            The road trip continues. Put your name down on the official passenger manifest and get ready for the next adventure drop.
+            The road trip continues. Put your name on the unofficial passenger list for notifications on what Siddhu and Harshath are cooking up next.
           </p>
 
           <div className="mt-8 flex justify-center">

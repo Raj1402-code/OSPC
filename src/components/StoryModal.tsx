@@ -33,9 +33,14 @@ export const StoryModal: React.FC<StoryModalProps> = ({ moment, onClose }) => {
         >
           {/* Top Video Preview Simulation Header */}
           <div className={`relative h-56 sm:h-64 bg-gradient-to-br ${moment.thumbnailGradient} flex flex-col justify-between p-6 overflow-hidden`}>
-            {/* Film Grain & Scanlines */}
-            <div className="absolute inset-0 bg-grain pointer-events-none opacity-50" />
-            <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+            {moment.image && (
+              <img
+                src={moment.image}
+                alt={moment.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-50"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/60 to-transparent pointer-events-none" />
 
             <div className="relative z-10 flex items-center justify-between">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-mono text-saffron-400 border border-white/10">

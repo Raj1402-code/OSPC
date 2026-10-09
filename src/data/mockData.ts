@@ -1,174 +1,231 @@
 import { Milestone, VlogMoment, VibeFeature } from '../types';
 
+export interface SquadMember {
+  id: string;
+  name: string;
+  tamilName: string;
+  role: string;
+  tagline: string;
+  bio: string;
+  badge: string;
+  favoriteFood: string;
+}
+
+export const SQUAD_MEMBERS: SquadMember[] = [
+  {
+    id: 'vj-siddhu',
+    name: 'VJ Siddhu',
+    tamilName: 'விஜே சித்து',
+    role: 'The Captain & Storyteller',
+    tagline: 'High energy, infectious laughter, spontaneous road captain',
+    bio: 'From Fun Panrom roots to steering Tamil YouTube’s most beloved travel squad. Never misses a roadside tea stall or a chance to pull Harshath’s leg.',
+    badge: 'CAPTAIN',
+    favoriteFood: 'Madurai Kari Dosa & Jigarthanda'
+  },
+  {
+    id: 'harshath-khan',
+    name: 'Harshath Khan',
+    tamilName: 'ஹர்ஷத் கான்',
+    role: 'The Counter King & Mimicry Star',
+    tagline: 'Instant counters, multi-voice mimicry, the ultimate partner-in-crime',
+    bio: 'The soul of every laugh. When Siddhu sets up a serious vlog monologue, Harshath drops one counter dialogue that sends the entire car into uncontrollable giggles.',
+    badge: 'COUNTER KING',
+    favoriteFood: 'Tirunelveli Halwa & Bun Parotta'
+  },
+  {
+    id: 'adirchi-arun',
+    name: 'Adirchi Arun',
+    tamilName: 'அதிர்ச்சி அருண்',
+    role: 'The Chaos Specialist',
+    tagline: 'Unfiltered reactions, high octane hype, fearless street energy',
+    bio: 'Brings raw street-smart enthusiasm to every village feast, temple festival, and tricky mountain hairpin bend. You hear him before you see him.',
+    badge: 'CHAOS MAESTRO',
+    favoriteFood: 'Tuticorin Salt-pan Parotta'
+  },
+  {
+    id: 'sheriff-crew',
+    name: 'Sheriff & The Camera Boys',
+    tamilName: 'ஷெரிப் & டீம்',
+    role: 'Behind the Lens (Accidental Main Characters)',
+    tagline: 'Holding the gimbal while wheezing from laughter',
+    bio: 'Supposed to stay behind the camera, but Siddhu’s unscripted questions constantly pull them into the frame to taste spicy curries and share honest opinions.',
+    badge: 'CREW CAM',
+    favoriteFood: 'Village Style Country Chicken Gravy'
+  }
+];
+
 export const VIBE_FEATURES: VibeFeature[] = [
   {
-    id: 'road-stories',
-    title: 'Road Stories',
-    subtitle: 'Unscripted Highways & Midnight Detours',
+    id: 'fun-panrom-humor',
+    title: 'Fun Panrom Counters',
+    subtitle: 'Machi Banter & Zero Scripts (பன் பண்றோம்)',
     description:
-      'No rigid scripts or studio lighting. Just packed boots, unfamiliar state highways, misty morning ghats, and the raw thrill of getting delightfully lost before sunrise.',
-    iconName: 'Compass',
-    badge: '01 / JOURNEY',
+      'No scripted dialogues or PR filters. Just Siddhu and Harshath exchanging rapid-fire counters, playful insults, and uncontrollable wheezing in the front seat.',
+    iconName: 'Flame',
+    badge: '01 / HUMOR',
     accentColor: 'from-orange-500/20 to-amber-500/10'
   },
   {
-    id: 'real-reactions',
-    title: 'Real Reactions',
-    subtitle: 'Honest Chaos & Zero Filters',
+    id: 'therku-seemai-nativity',
+    title: 'Therku Seemai Nativity',
+    subtitle: 'Deep Tamil Roots & Village Warmth (தெற்கு சீமை)',
     description:
-      'From unexpected flat tyres and fiery roadside dhabas to uncontrollable laughter at missed turns—capturing genuine human reactions in their purest, unpolished format.',
-    iconName: 'Flame',
-    badge: '02 / UNFILTERED',
+      'From Madurai Meenakshi corridors to Tirunelveli Thamirabarani banks and Tuticorin coasts—celebrating the raw hospitality, rustic dialect, and heritage of Southern Tamil Nadu.',
+    iconName: 'Compass',
+    badge: '02 / NATIVITY',
     accentColor: 'from-lime-500/20 to-emerald-500/10'
   },
   {
-    id: 'sidhu-community',
-    title: 'The Sidhu Community',
-    subtitle: 'Not Just Viewers. The Crew.',
+    id: 'the-6m-sidhu-army',
+    title: '6M+ Namma Gang',
+    subtitle: 'Family at Every Toll Plaza & Village Corner',
     description:
-      'A brotherhood of travellers, dreamers, and night-owls riding shotgun through the screen. Comment section banter that feels like sitting together around a roadside tea stall.',
+      'Not just viewers watching a screen. Whether it is college students at highway dhabas, grandmothers serving idlis, or the massive 6 Million Virunthu feast—it is pure family love.',
     iconName: 'Users',
-    badge: '03 / TRIBE',
+    badge: '03 / NAMMA CREW',
     accentColor: 'from-amber-500/20 to-orange-500/10'
   }
 ];
 
 export const FEATURED_MOMENTS: VlogMoment[] = [
   {
-    id: 'monsoon-ghats',
-    title: 'Foggy Ghats & The Lost Highway',
-    category: 'Monsoon Expedition',
-    duration: '24:18',
-    thumbnailGradient: 'from-slate-900 via-stone-800 to-amber-950/60',
-    teaser: 'Traversing the cloud-drenched Western Ghats in pouring rain, searching for a legendary 40-year-old cutting chai stall.',
+    id: 'therku-seemai-expedition',
+    title: 'Therku Seemai: The Village Virunthu & Clay Pot Mutton',
+    category: 'Therku Seemai Series',
+    duration: '28:45',
+    thumbnailGradient: 'from-amber-950 via-stone-900 to-black',
+    image: '/therku-seemai-feast.jpg',
+    teaser: 'Traveling deep into Southern Tamil Nadu villages for wood-fired clay pot country chicken, crispy parotta, and heartfelt village grandma stories.',
     notes: [
-      'Zero visibility past 1,800m elevation',
-      'Windshield wiper malfunction at midnight',
-      'Warm ginger chai served on a banana leaf'
+      'Authentic Tirunelveli and Madurai village culinary trail',
+      'Harshath tries grinding masala on traditional stone aattukal',
+      'Surprise village gathering with over 200 local fans greeting Siddhu'
     ],
-    location: 'Western Ghats Ridge, Mile 142',
-    quote: '"When the fog gets this thick, you stop driving by eyes and start driving by gut feeling."'
+    location: 'Tirunelveli Rural Circuit, Tamil Nadu',
+    quote: '"Namma Ooru sapadu mari ulagathula engayume kedaikadhu machi! (Nothing beats our village feast anywhere in the world!)"'
   },
   {
-    id: 'jaisalmer-midnight',
-    title: '3:00 AM Engine Stall in the Dunes',
-    category: 'Desert Chaos',
-    duration: '31:05',
-    thumbnailGradient: 'from-stone-900 via-amber-950/80 to-orange-950/40',
-    teaser: 'When the modified SUV coughs and stalls in the middle of Thar sand tracks under a brilliant blanket of stars.',
+    id: 'kodaikanal-midnight-breakdown',
+    title: 'Kodaikanal Ghats: Midnight Puncture & Ghost Stories',
+    category: 'Hill Station Road Trip',
+    duration: '32:10',
+    thumbnailGradient: 'from-slate-900 via-neutral-900 to-amber-950/70',
+    image: '/siddhu-roadtrip.jpg',
+    teaser: 'Freezing cold at 2:00 AM on the 18-hairpin bend ghat road, shivering while changing a tyre, accompanied by Harshath’s terrifying ghost voice mimicry.',
     notes: [
-      'Radiator overheating after steep sand ridge climbs',
-      'Fixing fuel lines with duct tape & pocket multitool',
-      'Starry campfire meal cooked on an inverted shovel'
+      'Thick fog past Batlagundu checkpoint with zero road visibility',
+      'Car overheating near Silver Cascade falls',
+      'Hot piping masala tea and pepper eggs cooked on a road-edge cart'
     ],
-    location: 'Thar Desert Border Tracks',
-    quote: '"The breakdown isn’t an interruption. The breakdown is where the real story starts."'
+    location: 'Kodaikanal Ghat Road, Tamil Nadu',
+    quote: '"Bayam irukku da, aana indha shivering-la Harshath panra comedy-la sirichi sirichi vayiru valikudhu!"'
   },
   {
-    id: 'dhaba-hunt',
-    title: 'The Secret Highway Dhaba at Dawn',
-    category: 'Culinary Detour',
-    duration: '19:42',
-    thumbnailGradient: 'from-zinc-900 via-neutral-800 to-lime-950/40',
-    teaser: 'Truck drivers whispered about a clay tandoor behind an old banyan tree. We followed tyre tracks for 18 kilometers off the toll road.',
+    id: 'madurai-food-hunt-chaos',
+    title: 'Madurai 4:00 AM Midnight Kari Dosa & Jigarthanda Hunt',
+    category: 'Food Trail Chaos',
+    duration: '22:30',
+    thumbnailGradient: 'from-zinc-900 via-stone-900 to-lime-950/40',
+    image: '/therku-seemai-feast.jpg',
+    teaser: 'Siddhu, Harshath, and Arun hit Madurai streets at dawn hunting for crispy Bun Parotta, spicy mutton chukka, and chilling special Jigarthanda.',
     notes: [
-      'Wood-fired parathas with fresh white butter',
-      'Hearty banter with long-haul truck captains',
-      'Sunrise painted the mustard fields golden'
+      'Unstoppable banter with parotta master tossing dough mid-air',
+      'Arun eats the spiciest mutton gravy challenge and regrets immediately',
+      'Early morning street vibes and auto driver brotherly talks'
     ],
-    location: 'National Highway 44 Junction',
-    quote: '"The best food in this country is never on a Google map. It is behind a dusty truck parking lot."'
+    location: 'Simmakkal & Munichalai, Madurai',
+    quote: '"Madurai parotta-va pichi pottu salna oothuna... andha smell-laye aal gaali!"'
   }
 ];
 
 export const MILESTONES: Milestone[] = [
   {
     id: 'milestone-1',
-    year: 'Chapter 01',
-    title: 'First Upload & The Shaky Mount',
-    tagline: 'Cheap microphone, second-hand hatchback, unlimited ambition.',
+    year: 'Phase 01',
+    title: 'Fun Panrom & Street Mic Roots',
+    tagline: 'No studio, cheap mic, raw street public prank interviews.',
     description:
-      'A shaky phone mount clamped to a sun visor, awkward monologue attempts at traffic signals, and 12 views from cousins. The start of an unscripted road addiction.',
-    location: 'Hometown City Ring Road',
-    highlightStat: '1st Upload',
-    tags: ['Raw Beginnings', 'Hatchback Vlogs', 'Vintage Audio']
+      'Siddhu and Harshath on Chennai streets with handheld microphones, discovering their unmatched comic timing and natural rapport with ordinary people on the road.',
+    location: 'Chennai Street Hubs & Fun Panrom Days',
+    highlightStat: 'The Beginning',
+    tags: ['Fun Panrom', 'Street Comedy', 'Harshath & Siddhu Duo']
   },
   {
     id: 'milestone-2',
-    year: 'Chapter 02',
-    title: 'Finding the Road & The Chai Circuit',
-    tagline: 'Leaving city traffic behind for winding mountain passes.',
+    year: 'Phase 02',
+    title: 'Starting VJ Siddhu Vlogs',
+    tagline: 'Taking the camera out of the city and onto the highway.',
     description:
-      'Realizing that the best conversations happen at tiny roadside tea stalls when the engine is cooling down. The signature chill road-trip storytelling rhythm was born.',
-    location: 'Southern Hill Corridors',
-    highlightStat: '5,000+ KMs',
-    tags: ['Cutting Chai', 'Spontaneous Detours', 'Foggy Climbs']
+      'Launching the personal vlog channel. First road trips, tempo traveler journeys, budget lodge stays, and capturing the genuine warmth of everyday Tamil life.',
+    location: 'Tamil Nadu State Highways & Hill Towns',
+    highlightStat: '1 Million Family',
+    tags: ['Budget Road Trips', 'First Vlogs', 'Machi Gang']
   },
   {
     id: 'milestone-3',
-    year: 'Chapter 03',
-    title: 'Building The Sidhu Crew',
-    tagline: 'When viewers turned into a passionate passenger fraternity.',
+    year: 'Phase 03',
+    title: 'The "Therku Seemai" Phenomenon',
+    tagline: 'Connecting with the deep roots, culture, and cuisine of South Tamil Nadu.',
     description:
-      'Comments began dictating routes. Viewers started spotting the car at highway tolls, handing over home-cooked snacks, and honking with genuine warmth across states.',
-    location: 'Cross-State Borders',
-    highlightStat: '50K Passenger Family',
-    tags: ['Community Meets', 'Toll Booth Waves', 'Passenger Seat Banter']
+      'The landmark Therku Seemai series kicked off. Exploring rural villages, temple car festivals, heritage foods, and honoring unsung village culinary legends with heartfelt love.',
+    location: 'Madurai, Tirunelveli, Tuticorin, Tenkasi',
+    highlightStat: 'Therku Seemai Series',
+    tags: ['Therku Seemai', 'Village Nativity', 'Parotta Trail']
   },
   {
     id: 'milestone-4',
-    year: 'Chapter 04',
-    title: 'Bigger Horizons & High Altitude Chaos',
-    tagline: 'Testing suspension, courage, and cameras on treacherous passes.',
+    year: 'Phase 04',
+    title: 'The 6 Million Virunthu Celebration',
+    tagline: 'Feeding thousands of subscribers on traditional banana leaves.',
     description:
-      'From sub-zero Himalayan mountain passes to blistering desert trails. High-stakes road trips where equipment froze, tyres punctured, and camaraderie peaked.',
-    location: 'Himalayan Ridge & Desert Trails',
-    highlightStat: '18,000ft Altitude',
-    tags: ['Extreme Terrains', 'Campfire Nights', 'Border Highways']
+      'Crossing 6 Million subscribers wasn’t marked by a luxury studio party—it was celebrated with a massive, open-ground community feast where Siddhu and the team personally served fans.',
+    location: 'Open Ground Virunthu Ground, Tamil Nadu',
+    highlightStat: '6M+ Subscriber Milestone',
+    tags: ['6M Virunthu', 'Banana Leaf Feast', 'Namma Makkal']
   },
   {
     id: 'milestone-5',
-    year: 'Chapter 05',
-    title: 'What Comes Next: Uncharted Detours',
-    tagline: 'The road never ends; it just turns into a different state of mind.',
+    year: 'Phase 05',
+    title: 'Silver Screen Crossover & The Road Ahead',
+    tagline: 'Making waves in Tamil cinema while keeping the vlog camera rolling.',
     description:
-      'New rigs, cross-country journeys, and international road circuits on the drawing board. One constant remains: honest storytelling and the passenger list ride along.',
-    location: 'Every Upcoming State Line',
-    highlightStat: 'Forever Exploring',
-    tags: ['Next Phase', 'Community Drops', 'Uncharted Roads']
+      'Siddhu and Harshath transitioning into acting roles in Kollywood feature films, proving that grassroots internet talent can conquer the silver screen without losing their grounded authenticity.',
+    location: 'Kollywood Studios to Open Highways',
+    highlightStat: 'Big Screen & Beyond',
+    tags: ['Cinema Crossover', 'Uncharted Detours', 'Forever Namma Gang']
   }
 ];
 
 export const AUDIENCE_THEMES = [
   {
-    title: 'Raw Travel & Open Highways',
-    description: 'No sterile tourist guides. Real routes, road conditions, toll booth realities, and the scent of rain on dry tarmac.',
-    icon: 'Compass',
-    highlight: 'Pure Journey'
-  },
-  {
-    title: 'Spontaneous Humour',
-    description: 'Unplanned jokes, witty passenger-seat banter, and finding uncontrollable laughs even when stranded with a flat tyre.',
+    title: 'Unscripted Counter Comedy',
+    description: 'Instant banter between Siddhu, Harshath Khan, and Adirchi Arun that feels like hanging out with your college hostel best friends.',
     icon: 'Sparkles',
-    highlight: 'Zero Pretence'
+    highlight: 'Fun Panrom DNA'
   },
   {
-    title: 'Uncompromised Authenticity',
-    description: 'If the food was bad, you hear it. If the road was terrible, you feel every bump. Transparent, grounded creator ethos.',
+    title: 'Therku Seemai Nativity',
+    description: 'Deep love for South Tamil Nadu traditions, dialect, temple towns, roadside parotta stalls, and down-to-earth village people.',
+    icon: 'Compass',
+    highlight: 'Pure Nativity'
+  },
+  {
+    title: 'Relatable Common Man Travel',
+    description: 'No luxury yacht lifestyle. Broken wipers, sharing one room in Kodaikanal, roadside tea cups, and finding bliss in simple moments.',
     icon: 'ShieldCheck',
-    highlight: '100% Real'
+    highlight: 'Zero Show-off'
   },
   {
-    title: 'The Passenger Feeling',
-    description: 'You are never just a viewer looking through a glass; you feel like you are sitting shotgun with the window rolled half down.',
+    title: 'Brotherhood & Community',
+    description: 'Treating fans not like numbers, but like real brothers and sisters ("Namma Makkal") at every petrol bunk, toll booth, and virunthu.',
     icon: 'HeartHandshake',
-    highlight: 'Shared Ride'
+    highlight: 'Family Bonding'
   }
 ];
 
 export const CELEBRATORY_STATS = [
-  { label: 'Highways & Byways Traversed', value: 48500, suffix: '+ km', note: 'Fan-inspired estimate' },
-  { label: 'Unscripted Stories Shared', value: 240, suffix: '+', note: 'Celebrated vlog moments' },
-  { label: 'Roadside Chai Stops', value: 1420, suffix: '+ cups', note: 'Fuel for the detours' },
-  { label: 'Crew Energy Rating', value: 100, suffix: '%', note: 'Passenger brotherhood' },
+  { label: 'YouTube Subscriber Family', value: 6400000, suffix: '+', note: 'Namma Sidhu Crew' },
+  { label: 'Therku Seemai & Road Episodes', value: 350, suffix: '+', note: 'Unfiltered Tamil Vlogs' },
+  { label: 'Banana Leaf Virunthu Servings', value: 15000, suffix: '+', note: 'Feast for Community' },
+  { label: 'Pure Fun Panrom Energy', value: 100, suffix: '%', note: 'Zero Script Guarantee' },
 ];

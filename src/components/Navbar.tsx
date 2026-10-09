@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Compass, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import { AnimatedButton } from './AnimatedButton';
 
 export const Navbar: React.FC = () => {
@@ -32,33 +32,40 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'glass-nav shadow-2xl py-3 border-b border-white/10'
-          : 'bg-charcoal-950/60 backdrop-blur-md py-4 sm:py-5 border-b border-white/5'
+          ? 'glass-nav shadow-2xl py-2.5 border-b border-white/10'
+          : 'bg-charcoal-950/70 backdrop-blur-md py-3.5 sm:py-4 border-b border-white/5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Wordmark */}
+          {/* Brand Wordmark with Real Channel Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 rounded-lg p-1"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 rounded-xl p-1"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-saffron-500 to-amber-600 flex items-center justify-center shadow-lg shadow-saffron-500/20 group-hover:scale-105 transition-transform duration-300 border border-saffron-400/30">
-              <Compass className="w-5 h-5 text-white animate-spin-slow group-hover:rotate-45 transition-transform duration-500" />
+            <div className="relative">
+              <img
+                src="/channel-1.jpeg"
+                alt="VJ Siddhu Vlogs Official Channel Logo"
+                className="w-11 h-11 rounded-full object-cover ring-2 ring-saffron-500/80 shadow-lg shadow-saffron-500/30 group-hover:scale-105 transition-all duration-300 bg-white"
+              />
+              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-lime-accent rounded-full border-2 border-charcoal-950 shadow-sm" />
             </div>
+
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-cream-50 group-hover:text-saffron-400 transition-colors">
-                VJ SIDHU <span className="text-saffron-500">/</span> VLOGS
+              <span className="font-display font-black text-lg sm:text-xl tracking-tight text-cream-50 group-hover:text-saffron-400 transition-colors flex items-center gap-1.5">
+                VJ SIDDHU <span className="text-saffron-500">/</span> VLOGS
               </span>
               <span className="text-[10px] font-mono tracking-wider text-cream-400 uppercase -mt-0.5 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-lime-accent animate-pulse" />
-                Unofficial Fan Hub
+                <span className="text-lime-accent font-semibold">FUN PANROM</span>
+                <span>•</span>
+                <span>Unofficial Fan Hub</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-charcoal-900/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-charcoal-900/70 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -92,7 +99,7 @@ export const Navbar: React.FC = () => {
               size="sm"
               icon={<Sparkles className="w-4 h-4 text-amber-200" />}
             >
-              Join the Crew
+              Join Namma Crew
             </AnimatedButton>
           </div>
 
@@ -116,9 +123,21 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden border-b border-white/10 bg-charcoal-950/95 backdrop-blur-2xl"
+            className="md:hidden overflow-hidden border-b border-white/10 bg-charcoal-950/98 backdrop-blur-2xl"
           >
             <div className="px-5 pt-3 pb-6 space-y-3">
+              <div className="flex items-center gap-3 pb-3 border-b border-white/10">
+                <img
+                  src="/channel-1.jpeg"
+                  alt="VJ Siddhu Vlogs Logo"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-saffron-500"
+                />
+                <div>
+                  <h4 className="font-display font-bold text-sm text-cream-50">VJ SIDDHU VLOGS</h4>
+                  <p className="text-[11px] font-mono text-lime-accent">Namma Ooru Fan Tribute</p>
+                </div>
+              </div>
+
               {navLinks.map((link, idx) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -151,13 +170,13 @@ export const Navbar: React.FC = () => {
                   className="w-full"
                   icon={<Sparkles className="w-4 h-4" />}
                 >
-                  Join the Crew
+                  Join Namma Crew
                 </AnimatedButton>
               </div>
 
               <div className="pt-2 text-center">
                 <p className="text-[11px] text-cream-400 font-mono">
-                  Unofficial fan tribute project for college demo
+                  Unofficial fan project for college assignment demo
                 </p>
               </div>
             </div>

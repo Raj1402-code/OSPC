@@ -9,13 +9,13 @@ import {
   CheckCircle2,
   AlertCircle,
   Ticket,
-  Compass,
   Radio,
   ShieldCheck,
   ChevronDown,
   RotateCcw,
   Database,
-  Users
+  Users,
+  Utensils
 } from 'lucide-react';
 import { AnimatedButton } from '../components/AnimatedButton';
 import { submitFanSignup, getLocalSignups } from '../lib/signup';
@@ -26,17 +26,17 @@ import type { WaitlistFormData } from '../types';
 const signupSchema = z.object({
   fullName: z
     .string()
-    .min(2, { message: 'Please enter your full name (at least 2 characters).' })
+    .min(2, { message: 'Please enter your name (at least 2 characters).' })
     .max(80, { message: 'Name must be under 80 characters.' }),
   email: z
     .string()
     .min(1, { message: 'Email address is required.' })
     .email({ message: 'Please provide a valid email address.' }),
   favoriteVlogType: z.enum([
-    'Road trip',
-    'Food and culture',
-    'Comedy and chaos',
-    'Behind the scenes',
+    'Therku Seemai & Village Vlogs',
+    'Squad Road Trips & Hill Stations',
+    'Harshath & Siddhu Comedy Counters',
+    'Food Hunts & Street Food Trails',
   ] as const, {
     errorMap: () => ({ message: 'Please select your favourite vlog format.' }),
   }),
@@ -46,7 +46,7 @@ const signupSchema = z.object({
     .optional(),
   consent: z.literal(true, {
     errorMap: () => ({
-      message: 'You must agree to receive fan-project demo updates to join.',
+      message: 'You must agree to receive fan-project updates to join.',
     }),
   }),
 });
@@ -75,7 +75,7 @@ export const Join: React.FC = () => {
     defaultValues: {
       fullName: '',
       email: '',
-      favoriteVlogType: 'Road trip',
+      favoriteVlogType: 'Therku Seemai & Village Vlogs',
       message: '',
       consent: false as unknown as true,
     },
@@ -92,8 +92,8 @@ export const Join: React.FC = () => {
         // Trigger celebratory confetti burst
         try {
           confetti({
-            particleCount: 100,
-            spread: 70,
+            particleCount: 110,
+            spread: 75,
             origin: { y: 0.6 },
             colors: ['#f97316', '#84cc16', '#fbbf24', '#ffffff'],
           });
@@ -146,12 +146,12 @@ export const Join: React.FC = () => {
               <div className="flex items-center justify-between mb-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-saffron-500/20 text-saffron-400 font-mono text-xs uppercase tracking-wider border border-saffron-500/30">
                   <Ticket className="w-3.5 h-3.5" />
-                  PASSENGER BOARDING LIST
+                  PASSENGER MANIFEST • நம்ம கேங்
                 </span>
 
                 <span className="flex items-center gap-1.5 text-xs font-mono text-cream-400">
                   <Database className="w-3.5 h-3.5 text-lime-accent" />
-                  <span>{supabaseReady ? 'Cloud Supabase Active' : 'Demo Vault Ready'}</span>
+                  <span>{supabaseReady ? 'Supabase Connected' : 'Demo Vault Ready'}</span>
                 </span>
               </div>
 
@@ -162,7 +162,7 @@ export const Join: React.FC = () => {
                 </span>
               </h1>
               <p className="mt-3 text-cream-300 text-sm sm:text-base leading-relaxed">
-                Get occasional updates, community drops, and first notice of what’s next. Unofficial fan club waitlist.
+                Take your seat with Siddhu, Harshath, Arun, and the 6M+ crew. Receive drop notices, travel itineraries, and virunthu meetup alerts.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export const Join: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-xl text-cream-50">
-                          Seat Confirmed, Shotgun!
+                          Seat Confirmed Shotgun! வெல்கம் மச்சி!
                         </h3>
                         <p className="text-xs font-mono text-lime-accent">
                           {submissionStatus.message}
@@ -195,7 +195,22 @@ export const Join: React.FC = () => {
 
                     {/* Digital Passenger Boarding Pass Ticket */}
                     {submissionStatus.ticketData && (
-                      <div className="p-5 rounded-xl bg-charcoal-950/80 border border-white/10 font-mono text-xs space-y-3 relative overflow-hidden">
+                      <div className="p-5 rounded-2xl bg-charcoal-950/90 border border-white/15 font-mono text-xs space-y-3 relative overflow-hidden shadow-xl">
+                        <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                          <div className="flex items-center gap-2.5">
+                            <img
+                              src="/channel-1.jpeg"
+                              alt="VJ Siddhu Logo"
+                              className="w-8 h-8 rounded-full object-cover ring-1 ring-saffron-500"
+                            />
+                            <div>
+                              <div className="font-bold text-cream-50 font-display">VJ SIDDHU VLOGS</div>
+                              <div className="text-[10px] text-lime-accent">OFFICIAL PASSENGER PASS</div>
+                            </div>
+                          </div>
+                          <span className="text-saffron-400 font-bold tracking-wider">#SIDHU-CREW-{Math.floor(1000 + Math.random() * 9000)}</span>
+                        </div>
+
                         <div className="flex justify-between items-center border-b border-white/10 pb-2">
                           <span className="text-cream-400">PASSENGER:</span>
                           <span className="text-saffron-400 font-bold uppercase">
@@ -203,20 +218,20 @@ export const Join: React.FC = () => {
                           </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                          <span className="text-cream-400">DISPATCH EMAIL:</span>
+                          <span className="text-cream-400">EMAIL:</span>
                           <span className="text-cream-200">
                             {submissionStatus.ticketData.email}
                           </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                          <span className="text-cream-400">FAVOURITE TRIP:</span>
+                          <span className="text-cream-400">VLOG GENRE:</span>
                           <span className="text-lime-accent">
                             {submissionStatus.ticketData.favoriteVlogType}
                           </span>
                         </div>
                         <div className="flex justify-between items-center text-[10px] text-cream-400 pt-1">
-                          <span>BOARDING PASS NO: #SIDHU-{Math.floor(1000 + Math.random() * 9000)}</span>
-                          <span className="text-saffron-400">UNOFFICIAL FAN PASS</span>
+                          <span>ROUTE: THERKU SEEMAI EXPRESS</span>
+                          <span className="text-saffron-400 font-bold">FUN PANROM!</span>
                         </div>
                       </div>
                     )}
@@ -228,7 +243,7 @@ export const Join: React.FC = () => {
                       className="w-full sm:w-auto px-6 py-3 rounded-xl bg-charcoal-800 hover:bg-charcoal-700 text-cream-200 font-medium text-sm flex items-center justify-center gap-2 border border-white/10 transition-colors"
                     >
                       <RotateCcw className="w-4 h-4" />
-                      Register Another Passenger
+                      Register Another Crew Mate
                     </button>
                     <AnimatedButton to="/" variant="secondary" size="md">
                       Return to Hub Home
@@ -267,12 +282,12 @@ export const Join: React.FC = () => {
                       htmlFor="fullName"
                       className="block text-xs font-mono uppercase tracking-wider text-cream-200 mb-2"
                     >
-                      Full Name <span className="text-saffron-500">*</span>
+                      Your Name / பெயர் <span className="text-saffron-500">*</span>
                     </label>
                     <input
                       id="fullName"
                       type="text"
-                      placeholder="e.g. Gurpreet Singh or Rhea Roy"
+                      placeholder="e.g. Vignesh, Karthik, or Priya"
                       {...register('fullName')}
                       aria-invalid={errors.fullName ? 'true' : 'false'}
                       aria-describedby={errors.fullName ? 'fullName-error' : undefined}
@@ -299,7 +314,7 @@ export const Join: React.FC = () => {
                     <input
                       id="email"
                       type="email"
-                      placeholder="e.g. roadtrip.lover@example.com"
+                      placeholder="e.g. namma.fan@gmail.com"
                       {...register('email')}
                       aria-invalid={errors.email ? 'true' : 'false'}
                       aria-describedby={errors.email ? 'email-error' : undefined}
@@ -321,7 +336,7 @@ export const Join: React.FC = () => {
                       htmlFor="favoriteVlogType"
                       className="block text-xs font-mono uppercase tracking-wider text-cream-200 mb-2"
                     >
-                      Favourite Kind of Vlog <span className="text-saffron-500">*</span>
+                      Favourite Kind of VJ Siddhu Vlog <span className="text-saffron-500">*</span>
                     </label>
                     <div className="relative">
                       <select
@@ -331,10 +346,10 @@ export const Join: React.FC = () => {
                         aria-describedby={errors.favoriteVlogType ? 'vlogType-error' : undefined}
                         className="w-full px-4 py-3.5 rounded-xl bg-charcoal-900 border border-white/15 text-cream-50 text-sm focus:outline-none focus:ring-1 focus:ring-saffron-500 appearance-none pr-10 cursor-pointer"
                       >
-                        <option value="Road trip">Road trip</option>
-                        <option value="Food and culture">Food and culture</option>
-                        <option value="Comedy and chaos">Comedy and chaos</option>
-                        <option value="Behind the scenes">Behind the scenes</option>
+                        <option value="Therku Seemai & Village Vlogs">Therku Seemai & Village Vlogs (தெற்கு சீமை)</option>
+                        <option value="Squad Road Trips & Hill Stations">Squad Road Trips & Hill Stations (கொடைக்கானல் / ஊட்டி)</option>
+                        <option value="Harshath & Siddhu Comedy Counters">Harshath & Siddhu Comedy Counters (பன் பண்றோம்)</option>
+                        <option value="Food Hunts & Street Food Trails">Food Hunts & Street Food Trails (பரோட்டா & சால்னா வேட்டை)</option>
                       </select>
                       <ChevronDown className="w-4 h-4 text-cream-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -353,14 +368,14 @@ export const Join: React.FC = () => {
                         htmlFor="message"
                         className="block text-xs font-mono uppercase tracking-wider text-cream-200"
                       >
-                        Note to the Crew (Optional)
+                        Message to Siddhu, Harshath & Arun (Optional)
                       </label>
                       <span className="text-[11px] font-mono text-cream-400">Max 500 chars</span>
                     </div>
                     <textarea
                       id="message"
                       rows={3}
-                      placeholder="Share your favourite highway, dhaba recommendation, or detour memory..."
+                      placeholder="Share your favourite counter dialogue, dhaba recommendation, or route suggestion..."
                       {...register('message')}
                       className="w-full px-4 py-3.5 rounded-xl bg-charcoal-900 border border-white/15 text-cream-50 placeholder-cream-400/50 text-sm focus:outline-none focus:ring-1 focus:ring-saffron-500 transition-colors resize-none"
                     />
@@ -385,7 +400,7 @@ export const Join: React.FC = () => {
                       <span className="text-xs text-cream-300 leading-relaxed select-none">
                         I agree to receive updates from this fan-project demo.{' '}
                         <span className="text-cream-400 font-mono block sm:inline">
-                          (Academic demonstration, no real commercial spam)
+                          (Academic demonstration, zero spam)
                         </span>
                       </span>
                     </label>
@@ -413,7 +428,7 @@ export const Join: React.FC = () => {
                         )
                       }
                     >
-                      {isSubmitting ? 'Confirming Passenger Seat...' : 'Claim Your Passenger Seat'}
+                      {isSubmitting ? 'Confirming Shotgun Seat...' : 'Claim Your Passenger Seat'}
                     </AnimatedButton>
                   </div>
 
@@ -431,7 +446,7 @@ export const Join: React.FC = () => {
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono text-cream-300 flex items-center gap-2">
                 <Users className="w-3.5 h-3.5 text-lime-accent" />
-                <span>Evaluator Vault ({localEntries.length} demo submissions recorded)</span>
+                <span>Evaluator Vault ({localEntries.length} demo signups recorded)</span>
               </span>
               <button
                 type="button"
@@ -464,22 +479,24 @@ export const Join: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: CINEMATIC COMMUNITY VISUAL & VIBE PANEL */}
+        {/* RIGHT COLUMN: PASSENGER PRIVILEGES & AUTHENTIC BANTER */}
         <div className="lg:col-span-5 space-y-6">
           {/* Passenger Lounge Card */}
           <div className="rounded-3xl bg-gradient-to-br from-charcoal-900 via-charcoal-850 to-charcoal-900 border border-white/10 p-8 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-saffron-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-saffron-500/20 text-saffron-400 flex items-center justify-center border border-saffron-500/30">
-                <Radio className="w-5 h-5 animate-pulse text-lime-accent" />
-              </div>
+              <img
+                src="/channel-1.jpeg"
+                alt="VJ Siddhu Vlogs"
+                className="w-12 h-12 rounded-full object-cover ring-2 ring-saffron-500 shadow-md"
+              />
               <div>
-                <span className="font-mono text-xs uppercase tracking-wider text-saffron-400">
-                  CREW RADAR FREQUENCY
+                <span className="font-mono text-xs uppercase tracking-wider text-saffron-400 font-bold">
+                  NAMMA SQUAD RADAR
                 </span>
                 <h3 className="font-display font-bold text-lg text-cream-50">
-                  Shotgun Seat Privileges
+                  Passenger Seat Privileges
                 </h3>
               </div>
             </div>
@@ -487,20 +504,20 @@ export const Join: React.FC = () => {
             <ul className="space-y-4">
               {[
                 {
-                  title: 'First Word on Detours',
-                  desc: 'Get route teasers and behind-the-scenes road notes before video public releases.',
+                  title: 'Therku Seemai Route Drops',
+                  desc: 'Get first notice when the squad sets off on Southern Tamil Nadu village expeditions.',
                 },
                 {
-                  title: 'Community Route Votes',
-                  desc: 'Help pick future dhaba stops, highway routes, and exploration challenges.',
+                  title: 'Food Trail & Dhaba Suggestions',
+                  desc: 'Suggest the next legendary parotta stall or village kari dosa spot for the team to review.',
                 },
                 {
-                  title: 'The Unfiltered Road Vibe',
-                  desc: 'A non-commercial space celebrating genuine friendship, humor, and road travel.',
+                  title: '6M+ Subscriber Family Love',
+                  desc: 'Be in the front row for community virunthu gatherings, open meets, and fan updates.',
                 },
               ].map((perk, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-lg bg-charcoal-950 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-lime-accent text-xs font-mono">
+                  <div className="w-6 h-6 rounded-lg bg-charcoal-950 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-lime-accent text-xs font-mono font-bold">
                     0{i + 1}
                   </div>
                   <div>
@@ -514,20 +531,20 @@ export const Join: React.FC = () => {
             <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-cream-400">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-lime-accent" />
-                RLS Guarded
+                RLS Guarded DB
               </span>
-              <span>EST. TRIP TIME: NOW</span>
+              <span>EST. TRIP TIME: ALWAYS FUN</span>
             </div>
           </div>
 
-          {/* Simulated Audio Spectrum / Road Quote Card */}
+          {/* Authentic Food & Quote Card */}
           <div className="rounded-3xl glass-panel p-6 border border-white/10 space-y-4">
             <div className="flex items-center justify-between font-mono text-xs text-cream-400">
               <span className="flex items-center gap-2">
-                <Compass className="w-3.5 h-3.5 text-saffron-400" />
-                AUDIO LOG #ROAD-2026
+                <Utensils className="w-3.5 h-3.5 text-saffron-400" />
+                NAMMA DIALOGUE #VERA-LEVEL
               </span>
-              <span className="text-lime-accent">320 KBPS HIGHWAY MIX</span>
+              <span className="text-lime-accent">MADURAI SALNA VIBE</span>
             </div>
 
             {/* Audio Wave Visual Bars */}
@@ -550,8 +567,8 @@ export const Join: React.FC = () => {
               )}
             </div>
 
-            <p className="text-xs text-cream-300 italic font-serif leading-relaxed">
-              “The best journeys don’t have an itinerary. You pack the car, bring the right crew, and let the state highways surprise you.”
+            <p className="text-xs text-cream-200 italic font-serif leading-relaxed">
+              “வண்டில பெட்ரோல் இருக்கு... கூட மச்சி ஹர்ஷத் இருக்கான்... முன்னாடி தெற்கு சீமை ரோடு இருக்கு! பன் பண்றோம்!”
             </p>
           </div>
         </div>
